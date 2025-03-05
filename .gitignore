@@ -1,0 +1,55 @@
+# Залежності
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Налаштування середовища
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Логи
+logs/
+*.log
+
+# Директорії та файли операційної системи
+.DS_Store
+Thumbs.db
+.directory
+*.swp
+*.swo
+
+# Директорії IDE та редакторів
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Директорії та файли бази даних
+*.sqlite
+*.db
+
+# Тимчасові файли
+tmp/
+temp/
+
+# Файли збірки та дистрибутиви
+dist/
+build/
+public/uploads/
+
+# Інші
+coverage/
+.nyc_output/

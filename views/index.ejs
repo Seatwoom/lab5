@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Application</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Items List</h1>
+      <a href="/create" class="btn-create">Add New Item</a>
+
+      <% if (locals.error) { %>
+      <div class="error"><%= error %></div>
+      <% } %>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (items && items.length > 0) { %> <% items.forEach(item => { %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td><%= new Date(item.created_at).toLocaleDateString() %></td>
+            <td class="actions">
+              <a href="/view/<%= item.id %>" class="btn-view">View</a>
+              <a href="/edit/<%= item.id %>" class="btn-edit">Edit</a>
+              <form
+                action="/delete/<%= item.id %>?_method=DELETE"
+                method="POST"
+                class="delete-form"
+              >
+                <button
+                  type="submit"
+                  class="btn-delete"
+                  onclick="return confirm('Are you sure?')"
+                >
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }); %> <% } else { %>
+          <tr>
+            <td colspan="5">No items found</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
